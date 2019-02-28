@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./custom-error.component.css']
 })
 export class CustomErrorComponent implements OnInit {
-
+  initialtext = 'This is initial text. This is the first text that will be seen';
   constructor() { }
 
   ngOnInit() {

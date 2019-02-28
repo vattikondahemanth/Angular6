@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../data-service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   initialtext = 'This is initial text. This is the first text that will be seen';
   text = this.initialtext;
-  constructor() {  }
+  message: string;
+  constructor(private data: DataServiceService) {  }
 
   ngOnInit() {
-
+    this.data.currentMessage.subscribe(message => this.message = message)
   }
   dangerbuttonclick() {
     if (this.text === this.initialtext) {

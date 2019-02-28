@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NotFoundComponentComponent } from './not-found-component/not-found-component.component';
+import { CustomErrorComponent } from './custom-error/custom-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    NotFoundComponentComponent
+    NotFoundComponentComponent,
+    CustomErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,15 @@ import { NotFoundComponentComponent } from './not-found-component/not-found-comp
       {
         path : 'Home',
         component : HomeComponent
+      },{
+        path : 'Payal',
+        pathMatch : 'prefix',
+        children : [
+          {
+            path : '**', component : HomeComponent
+          }
+
+        ]
       },
       {
         path: '',
